@@ -1,7 +1,12 @@
-﻿namespace TicTacToe
+﻿using System.Diagnostics;
+
+namespace TicTacToe
 {
     public partial class TicTacToe : Form
     {
+        private int XVictoryCount = 0;
+        private int OVictoryCount = 0;
+        private int TurnCount = 0;
         private string Currentplayer = "X";
         private bool Victory = false;
         string[] buttonsChecked = new string[9];
@@ -68,7 +73,6 @@
 
         private void Retry_Click(object sender, EventArgs e)
         {
-
             ClearTable();
         }
 
@@ -86,12 +90,13 @@
         {
             if (button.Text == "")
             {
+                TurnCount++;
                 button.Text = Currentplayer;
                 buttonsChecked[Int16.Parse(button.Tag.ToString())] = Currentplayer;
 
                 EndTurn();
 
-                if (Currentplayer == "X")
+                if (Currentplayer == "X" && Victory == false)
                 {
                     Currentplayer = "O";
                 }
@@ -99,6 +104,10 @@
                 {
                     Currentplayer = "X";
                 }
+
+                PlayerTurn.Text = "Player turn: "+Currentplayer;
+                Turn.Text = TurnCount.ToString().PadLeft(2,'0');
+
             }
             return button;
         }
@@ -116,10 +125,26 @@
             {
                 Victory = true;
             }
+            else
+            {
+                Victory = false;
+            }
 
             if (Victory)
             {
                 DialogResult dialogResult = MessageBox.Show("Player " + Currentplayer + " won! \nDo you want to play again?", "Congratulations!", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                
+                if (Currentplayer == "X")
+                {
+                    XVictoryCount++;
+                }
+                else
+                {
+                    OVictoryCount++;
+                }
+
+                WinCount.Text = $"Win Count: X:{XVictoryCount} Y:{OVictoryCount}";
+
                 if (dialogResult == DialogResult.Yes)
                 {
                     ClearTable();
@@ -133,6 +158,11 @@
 
         public void ClearTable()
         {
+            Array.Clear(buttonsChecked, 0, buttonsChecked.Length);
+            Currentplayer = "X";
+            PlayerTurn.Text = "Player turn: " + Currentplayer;
+            TurnCount = 0;
+
             button1.Text = "";
             button2.Text = "";
             button3.Text = "";
@@ -142,10 +172,11 @@
             button7.Text = "";
             button8.Text = "";
             button9.Text = "";
-
-            Array.Clear(buttonsChecked, 0, buttonsChecked.Length);
-            Currentplayer = "X";
-            Victory = false;
+            Turn.Text = "00";
         }
+
+        private Label PlayerTurn;
+        private Label Turn;
+        private Label WinCount;
     }
 }

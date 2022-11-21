@@ -28,11 +28,14 @@ namespace TicTacToe
             this.button9 = new System.Windows.Forms.Button();
             this.Retry = new System.Windows.Forms.Button();
             this.Exit = new System.Windows.Forms.Button();
+            this.PlayerTurn = new System.Windows.Forms.Label();
+            this.Turn = new System.Windows.Forms.Label();
+            this.WinCount = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 58);
+            this.button1.Location = new System.Drawing.Point(9, 82);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(145, 131);
             this.button1.TabIndex = 0;
@@ -42,7 +45,7 @@ namespace TicTacToe
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(156, 58);
+            this.button2.Location = new System.Drawing.Point(153, 82);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(145, 131);
             this.button2.TabIndex = 1;
@@ -52,7 +55,7 @@ namespace TicTacToe
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(300, 58);
+            this.button3.Location = new System.Drawing.Point(297, 82);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(145, 131);
             this.button3.TabIndex = 2;
@@ -62,7 +65,7 @@ namespace TicTacToe
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(12, 188);
+            this.button4.Location = new System.Drawing.Point(9, 212);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(145, 131);
             this.button4.TabIndex = 3;
@@ -72,7 +75,7 @@ namespace TicTacToe
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(156, 188);
+            this.button5.Location = new System.Drawing.Point(153, 212);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(145, 131);
             this.button5.TabIndex = 4;
@@ -82,7 +85,7 @@ namespace TicTacToe
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(300, 188);
+            this.button6.Location = new System.Drawing.Point(297, 212);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(145, 131);
             this.button6.TabIndex = 5;
@@ -92,7 +95,7 @@ namespace TicTacToe
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(12, 318);
+            this.button7.Location = new System.Drawing.Point(9, 342);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(145, 131);
             this.button7.TabIndex = 6;
@@ -102,7 +105,7 @@ namespace TicTacToe
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(156, 318);
+            this.button8.Location = new System.Drawing.Point(153, 342);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(145, 131);
             this.button8.TabIndex = 7;
@@ -112,7 +115,7 @@ namespace TicTacToe
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(300, 318);
+            this.button9.Location = new System.Drawing.Point(297, 342);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(145, 131);
             this.button9.TabIndex = 8;
@@ -122,9 +125,9 @@ namespace TicTacToe
             // 
             // Retry
             // 
-            this.Retry.Location = new System.Drawing.Point(23, 512);
+            this.Retry.Location = new System.Drawing.Point(298, 482);
             this.Retry.Name = "Retry";
-            this.Retry.Size = new System.Drawing.Size(75, 23);
+            this.Retry.Size = new System.Drawing.Size(72, 23);
             this.Retry.TabIndex = 9;
             this.Retry.Text = "Retry";
             this.Retry.UseVisualStyleBackColor = true;
@@ -132,19 +135,54 @@ namespace TicTacToe
             // 
             // Exit
             // 
-            this.Exit.Location = new System.Drawing.Point(104, 512);
+            this.Exit.Location = new System.Drawing.Point(369, 482);
             this.Exit.Name = "Exit";
-            this.Exit.Size = new System.Drawing.Size(75, 23);
+            this.Exit.Size = new System.Drawing.Size(73, 23);
             this.Exit.TabIndex = 10;
             this.Exit.Text = "Exit";
             this.Exit.UseVisualStyleBackColor = true;
             this.Exit.Click += new System.EventHandler(this.Exit_Click);
             // 
+            // PlayerTurn
+            // 
+            this.PlayerTurn.AutoSize = true;
+            this.PlayerTurn.Font = new System.Drawing.Font("SimSun", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.PlayerTurn.Location = new System.Drawing.Point(9, 9);
+            this.PlayerTurn.Name = "PlayerTurn";
+            this.PlayerTurn.Size = new System.Drawing.Size(166, 21);
+            this.PlayerTurn.TabIndex = 11;
+            this.PlayerTurn.Text = "Player turn:X";
+            this.PlayerTurn.Click += new System.EventHandler(this.PlayerTurn_Click);
+            // 
+            // Turn
+            // 
+            this.Turn.AutoSize = true;
+            this.Turn.Font = new System.Drawing.Font("SimSun", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Turn.Location = new System.Drawing.Point(198, 39);
+            this.Turn.Name = "Turn";
+            this.Turn.Size = new System.Drawing.Size(59, 40);
+            this.Turn.TabIndex = 12;
+            this.Turn.Text = "00";
+            this.Turn.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // WinCount
+            // 
+            this.WinCount.AutoSize = true;
+            this.WinCount.Font = new System.Drawing.Font("SimSun", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.WinCount.Location = new System.Drawing.Point(216, 9);
+            this.WinCount.Name = "WinCount";
+            this.WinCount.Size = new System.Drawing.Size(226, 21);
+            this.WinCount.TabIndex = 13;
+            this.WinCount.Text = "Win Count: X:0 Y:0";
+            // 
             // TicTacToe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(584, 561);
+            this.ClientSize = new System.Drawing.Size(449, 511);
+            this.Controls.Add(this.WinCount);
+            this.Controls.Add(this.Turn);
+            this.Controls.Add(this.PlayerTurn);
             this.Controls.Add(this.Exit);
             this.Controls.Add(this.Retry);
             this.Controls.Add(this.button9);
@@ -157,12 +195,13 @@ namespace TicTacToe
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(600, 600);
-            this.MinimumSize = new System.Drawing.Size(600, 600);
+            this.MaximumSize = new System.Drawing.Size(465, 550);
+            this.MinimumSize = new System.Drawing.Size(465, 550);
             this.Name = "TicTacToe";
             this.Text = "Tic-Tac-Toe";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -179,5 +218,15 @@ namespace TicTacToe
         public Button button9;
         private Button Retry;
         private Button Exit;
+
+        private void PlayerTurn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
