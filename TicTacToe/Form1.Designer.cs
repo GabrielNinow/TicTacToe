@@ -8,7 +8,7 @@ namespace TicTacToe
         private int OVictoryCount = 0;
         private int TurnCount = 0;
         private string Currentplayer = "X";
-        private bool Victory = false;
+        private bool GameOver = false;
         string[] buttonsChecked = new string[9];
         public TicTacToe()
         {
@@ -96,7 +96,7 @@ namespace TicTacToe
 
                 EndTurn();
 
-                if (Currentplayer == "X" && Victory == false)
+                if (Currentplayer == "X" && GameOver == false)
                 {
                     Currentplayer = "O";
                 }
@@ -123,14 +123,14 @@ namespace TicTacToe
                 buttonsChecked[0] == Currentplayer && buttonsChecked[4] == Currentplayer && buttonsChecked[8] == Currentplayer ||
                 buttonsChecked[2] == Currentplayer && buttonsChecked[4] == Currentplayer && buttonsChecked[6] == Currentplayer)
             {
-                Victory = true;
+                GameOver = true;
             }
             else
             {
-                Victory = false;
+                GameOver = false;
             }
 
-            if (Victory)
+            if (GameOver)
             {
                 DialogResult dialogResult = MessageBox.Show("Player " + Currentplayer + " won! \nDo you want to play again?", "Congratulations!", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 
@@ -148,6 +148,31 @@ namespace TicTacToe
                 if (dialogResult == DialogResult.Yes)
                 {
                     ClearTable();
+                }
+                else
+                {
+                    Application.Exit();
+                }
+            }
+
+            bool HasEmptyTile = false;
+
+            for(int i = 1; i < buttonsChecked.Length; i++)
+            {
+                if (buttonsChecked[i] == null)
+                {
+                    HasEmptyTile = true;
+                    break;
+                }
+            }
+
+            if (!HasEmptyTile)
+            {
+                DialogResult dialogResult = MessageBox.Show("Seens like the game is tied! \nDo you want to play again?", "Oh no!", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    GameOver = true;
+                    ClearTable();  
                 }
                 else
                 {
@@ -178,5 +203,10 @@ namespace TicTacToe
         private Label PlayerTurn;
         private Label Turn;
         private Label WinCount;
+        private ContextMenuStrip contextMenuStrip1;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem aboutToolStripMenuItem;
+        private ToolStripMenuItem developerToolStripMenuItem;
+        private ToolStripMenuItem gameToolStripMenuItem;
     }
 }
