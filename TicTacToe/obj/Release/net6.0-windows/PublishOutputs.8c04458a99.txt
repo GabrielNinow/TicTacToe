@@ -1,0 +1,5 @@
+C:\Users\gabri\source\repos\TicTacToe\TicTacToe\bin\publish\TicTacToe.exe
+C:\Users\gabri\source\repos\TicTacToe\TicTacToe\bin\publish\TicTacToe.dll
+C:\Users\gabri\source\repos\TicTacToe\TicTacToe\bin\publish\TicTacToe.deps.json
+C:\Users\gabri\source\repos\TicTacToe\TicTacToe\bin\publish\TicTacToe.runtimeconfig.json
+C:\Users\gabri\source\repos\TicTacToe\TicTacToe\bin\publish\TicTacToe.pdb

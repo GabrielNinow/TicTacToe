@@ -50,10 +50,6 @@ namespace TicTacToe
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             string url = "https://www.exploratorium.edu/brain_explorer/tictactoe.html";
-            //if (e.Link.LinkData != null)
-            //    url = e.Link.LinkData.ToString();
-            //else
-            //    url = RulesAnchor.Text.Substring(e.Link.Start, e.Link.Length);
 
             if (!url.Contains("://"))
                 url = "https://" + url;

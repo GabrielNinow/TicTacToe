@@ -2,15 +2,9 @@
 {
     partial class GameMessage
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
+
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -98,7 +92,7 @@
             this.MaximumSize = new System.Drawing.Size(300, 150);
             this.MinimumSize = new System.Drawing.Size(300, 150);
             this.Name = "GameMessage";
-            this.Text = "Form3";
+            this.Text = "About Game";
             this.ResumeLayout(false);
             this.PerformLayout();
 
